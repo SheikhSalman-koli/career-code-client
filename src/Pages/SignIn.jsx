@@ -3,6 +3,7 @@ import React, { use } from 'react';
 import logLottie from '../assets/lottie/login-lottie.json'
 import { AuthContext } from '../Conterxt/AuthContext';
 import Swal from 'sweetalert2';
+import SidnWithGle from '../shared/SidnWithGle';
 
 const SignIn = () => {
 
@@ -53,6 +54,7 @@ const SignIn = () => {
                                 <button type='submit' className="btn btn-neutral mt-4">Login</button>
                             </fieldset>
                         </form>
+                        <SidnWithGle></SidnWithGle>
                     </div>
                 </div>
             </div>

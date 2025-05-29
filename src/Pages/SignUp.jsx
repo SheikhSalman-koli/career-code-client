@@ -3,6 +3,7 @@ import Lottie from 'lottie-react';
 import registerLottie from '../assets/lottie/Animation - 1748343096598.json'
 import { AuthContext } from '../Conterxt/AuthContext';
 import Swal from 'sweetalert2';
+import SidnWithGle from '../shared/SidnWithGle';
 
 
 const SignUp = () => {
@@ -53,6 +54,7 @@ const SignUp = () => {
                                 <button type='submit' className="btn btn-neutral mt-4">Register</button>
                             </fieldset>
                         </form>
+                        <SidnWithGle></SidnWithGle>
                     </div>
                 </div>
             </div>
