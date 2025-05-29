@@ -4,10 +4,14 @@ import logLottie from '../assets/lottie/login-lottie.json'
 import { AuthContext } from '../Conterxt/AuthContext';
 import Swal from 'sweetalert2';
 import SidnWithGle from '../shared/SidnWithGle';
+import { useLocation, useNavigate } from 'react-router';
 
 const SignIn = () => {
 
     const { loginUser, setUser } = use(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state || '/'
 
     const handleLogin = e => {
         e.preventDefault()
@@ -27,6 +31,7 @@ const SignIn = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                navigate(from)
                 // console.log(result.user);
             })
             .catch(error => {

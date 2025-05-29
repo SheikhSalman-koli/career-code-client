@@ -7,6 +7,9 @@ import SignIn from "../Pages/SignIn";
 import SignUp from "../Pages/SignUp";
 import JobDetails from "../Pages/JobDetails";
 import { param } from "motion/react-client";
+import Apply from "../Pages/Apply";
+import PrivateRoute from "./PrivateRoute";
+import Loader from "../Componant/Loader";
 
 
 export const router = createBrowserRouter([
@@ -29,7 +32,14 @@ export const router = createBrowserRouter([
     {
       path: 'details/:id',
       loader: ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`),
-      Component: JobDetails
+      Component: JobDetails,
+      hydrateFallbackElement: <Loader></Loader>
+    },
+    {
+      path: 'apply/:id',
+      loader: ({params})=> fetch(`http://localhost:3000/jobs/${params.id}`),
+      element: <PrivateRoute><Apply></Apply></PrivateRoute>,
+      hydrateFallbackElement: <Loader></Loader>
     }
    ]
   }

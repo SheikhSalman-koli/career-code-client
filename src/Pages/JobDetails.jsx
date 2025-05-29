@@ -1,9 +1,9 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const JobDetails = () => {
     const job = useLoaderData()
-    console.log(job);
+    // console.log(job);
     return (
         <div>
             <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-xl mt-10">
@@ -61,6 +61,9 @@ const JobDetails = () => {
                 <div className="border-t pt-4 mt-4 text-sm text-gray-600">
                     <p>Contact: {job.hr_name} - <a href={`mailto:${job.hr_email}`} className="text-blue-600">{job.hr_email}</a></p>
                     <p>Status: <span className={job.status === "active" ? "text-green-600" : "text-red-600"}>{job.status}</span></p>
+                </div>
+                 <div className="justify-start card-actions mt-3">
+                        <Link to={`/apply/${job._id}`} className="btn btn-primary">Apply Now</Link>
                 </div>
             </div>
         </div>
