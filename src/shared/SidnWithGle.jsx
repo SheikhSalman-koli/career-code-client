@@ -1,9 +1,13 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Conterxt/AuthContext';
+import { useLocation, useNavigate } from 'react-router';
 
 const SidnWithGle = () => {
 
     const {signInWithGle, setUser} = use(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state || '/'
 
     const handlelogin =()=>{
         signInWithGle()
@@ -11,6 +15,7 @@ const SidnWithGle = () => {
             const person = reult.user
             setUser(person)
             // console.log(reult);
+            navigate(from)
         })
         .catch(error=>{
             console.log(error.meesage);

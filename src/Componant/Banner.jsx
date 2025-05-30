@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from "motion/react"
 import team1 from '../assets/teams/colleagues-working-project-discussing-details.jpg'
 import team2 from '../assets/teams/corporate-workers-brainstorming-together.jpg'
+
 const Banner = () => {
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -17,11 +18,11 @@ const Banner = () => {
                 />
                  <motion.img
                  animate={{
-                    x:[100,150,100],
+                    x:[40,80,40],
                     transition:{duration:10, delay:5, repeat: Infinity}
                  }}
                     src={team2}
-                    className="max-w-sm rounded-t-[40px] rounded-br-[40px] border-blue-500 border-l-8 border-b-8 shadow-2xl "
+                    className="max-w-sm rounded-t-[40px]  rounded-br-[40px] border-blue-500 border-l-8 border-b-8 shadow-2xl "
                 />
                </div>
                 <div className='flex-1'>

@@ -7,22 +7,22 @@ import { auth } from '../firebase/fire.init';
 const AuthProvider = ({children}) => {
     
     const [user, setUser] = useState()
-    const [loader, setLoader] = useState(true)
+    const [loading, setLoading] = useState(true)
     const gleProvider = new GoogleAuthProvider()
     console.log(user);
 
     const createUser =(email,password)=>{
-        setLoader(true)
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const loginUser =(email, password)=>{
-        setLoader(true)
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const signInWithGle =()=>{
-        setLoader(true)
+        setLoading(true)
         return signInWithPopup(auth, gleProvider)
     }
 
@@ -33,7 +33,7 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth,(currentUser)=>{
             setUser(currentUser)
-            setLoader(false)
+            setLoading(false)
         })
         return ()=>{
             unsubscribe()
@@ -47,7 +47,7 @@ const AuthProvider = ({children}) => {
         setUser,
         loginUser,
         logOutUser,
-        loader,
+        loading,
         signInWithGle
     }
 

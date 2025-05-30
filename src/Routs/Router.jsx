@@ -6,7 +6,6 @@ import Home from "../Pages/Home";
 import SignIn from "../Pages/SignIn";
 import SignUp from "../Pages/SignUp";
 import JobDetails from "../Pages/JobDetails";
-import { param } from "motion/react-client";
 import Apply from "../Pages/Apply";
 import PrivateRoute from "./PrivateRoute";
 import Loader from "../Componant/Loader";
