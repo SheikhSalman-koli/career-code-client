@@ -26,6 +26,11 @@ const Nav = () => {
 
     const links = <>
         <NavLink to='/'>Home</NavLink>
+        {
+            user && <>
+            <NavLink to='/myapp'>My Applications</NavLink>
+            </>
+        }
     </>
     return (
         <div>
