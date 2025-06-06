@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import ApplicationStat from './ApplicationStat';
 import ApplicationList from './ApplicationList';
 import UseAuth from '../../Hook/UseAuth';
+
 import { applicationPromise } from '../../applications/applications';
 
 const MyApplications = () => {
