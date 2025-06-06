@@ -26,9 +26,16 @@ const Nav = () => {
 
     const links = <>
         <NavLink to='/'>Home</NavLink>
+        {/* for applicant */}
         {
             user && <>
             <NavLink to='/myapp'>My Applications</NavLink>
+            </>
+        }
+        {/* for rectuter */}
+        {
+            user && <>
+             <NavLink to='/addjob'>Add Jobs</NavLink>
             </>
         }
     </>
