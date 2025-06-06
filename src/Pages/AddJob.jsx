@@ -4,12 +4,29 @@ import UseAuth from '../Hook/UseAuth';
 const AddJob = () => {
 
     const {user} = UseAuth()
+
     const handleSubmit =e=>{
         e.preventDefault()
         const form = e.target;
         const formData = new FormData(form)
         const data = Object.fromEntries(formData.entries())
-        console.log(data);
+
+        // salary range
+        const {max, min, currency, ...newJob} = data
+        newJob.salaryRange = {max, min, currency}
+        // requirements
+        // newJob.Requirements = newJob.Requirements.split(',').map(i=> i.trim())
+        const requirementsStr = newJob.Requirements
+        const requirementsdirty = requirementsStr.split(',')
+        const requirementsClean = requirementsdirty.map(req=> req.trim())
+        newJob.Requirements = requirementsClean
+
+        const ResponsibilitiesStr = newJob.Responsibilities
+        const Responsibilitiesdirty = ResponsibilitiesStr.split(',')
+        const ResponsibilitiesClean = Responsibilitiesdirty.map(req=> req.trim())
+        newJob.Responsibilities = ResponsibilitiesClean
+
+        console.log(newJob);
     }
 
     return (
