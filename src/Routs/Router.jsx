@@ -11,6 +11,8 @@ import PrivateRoute from "./PrivateRoute";
 import Loader from "../Componant/Loader";
 import MyApplications from "../Pages/myApplication/MyApplications";
 import AddJob from "../Pages/AddJob";
+import MyPostedJobs from "../Pages/MyPostedJobs";
+import VeiwApplication from "../Pages/myApplication/VeiwApplication";
 
 
 export const router = createBrowserRouter([
@@ -49,6 +51,14 @@ export const router = createBrowserRouter([
     {
       path: 'addjob',
       element: <PrivateRoute><AddJob></AddJob></PrivateRoute>
+    },
+    {
+      path: 'myposted',
+      element: <PrivateRoute><MyPostedJobs></MyPostedJobs></PrivateRoute>
+    },
+    {
+      path: 'APPLICATION/:id',
+      element: <PrivateRoute><VeiwApplication></VeiwApplication></PrivateRoute>
     }
    ]
   }

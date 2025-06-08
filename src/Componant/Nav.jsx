@@ -36,6 +36,7 @@ const Nav = () => {
         {
             user && <>
              <NavLink to='/addjob'>Add Jobs</NavLink>
+             <NavLink to='/myposted'>My Posted Jobs</NavLink>
             </>
         }
     </>

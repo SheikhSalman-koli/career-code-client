@@ -1,5 +1,7 @@
 import React from 'react';
 import UseAuth from '../Hook/UseAuth';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddJob = () => {
 
@@ -26,7 +28,19 @@ const AddJob = () => {
         const ResponsibilitiesClean = Responsibilitiesdirty.map(req=> req.trim())
         newJob.Responsibilities = ResponsibilitiesClean
 
-        console.log(newJob);
+        newJob.status = "active"
+        // console.log(newJob);
+
+        axios.post('http://localhost:3000/jobs', newJob)
+        .then(res=>{
+            // console.log(res.data);
+            if(res.data.insertedId){
+                Swal.fire('a job added successfully')
+            }
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
 
     return (
@@ -105,19 +119,19 @@ const AddJob = () => {
                         </div>
                         <div>
                             <label className="label">Requirements</label>
-                             <textarea className="textarea" name='Requirements' placeholder="Requirements (separate by comma)"></textarea>
+                             <textarea className="textarea" name='requirements' placeholder="Requirements (separate by comma)"></textarea>
                         </div>
                         <div>
                             <label className="label">Responsibilities</label>
-                             <textarea className="textarea" name='Responsibilities' placeholder="Responsibilities (separate by comma)"></textarea>
+                             <textarea className="textarea" name='responsibilities' placeholder="Responsibilities (separate by comma)"></textarea>
                         </div>
                         <div>
                             <label className="label">HR Name</label>
-                            <input type="text" name='HR_name' className="input" placeholder="HR Name" />
+                            <input type="text" name='hr_name' className="input" placeholder="HR Name" />
                         </div>
                         <div>
                             <label className="label">HR Email</label>
-                            <input type="email" name='HR_email' className="input" defaultValue={user.email} readOnly />
+                            <input type="email" name='hr_email' className="input" defaultValue={user.email} readOnly />
                         </div>
                     </fieldset>
                 </div>

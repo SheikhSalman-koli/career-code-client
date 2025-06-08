@@ -4,7 +4,7 @@ import ApplicationsTables from './ApplicationsTables';
 const ApplicationList = ({ applicationPromise }) => {
 
     const applyedJobs = use(applicationPromise)
-    console.log(applyedJobs);
+    // console.log(applyedJobs);
     return (
         <div>
             <h1 className="text-5xl">Total Applied Jobs : {applyedJobs.length}</h1>
