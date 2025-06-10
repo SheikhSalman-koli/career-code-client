@@ -8,6 +8,7 @@ import { applicationPromise } from '../../applications/applications';
 const MyApplications = () => {
 
     const { user } = UseAuth()
+    console.log(user.accessToken);
     return (
         <div>
             <ApplicationStat></ApplicationStat>
@@ -20,7 +21,7 @@ const MyApplications = () => {
                 </>
             }>
                 <ApplicationList
-                    applicationPromise={applicationPromise(user.email)}
+                    applicationPromise={applicationPromise(user.email,user.accessToken)}
                 ></ApplicationList>
             </Suspense>
         </div>
