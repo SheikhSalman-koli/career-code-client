@@ -17,6 +17,7 @@ const PostedJobList = ({ postedJobsPromise }) => {
                             <th>No.</th>
                             <th>Job Title</th>
                             <th>Job Location</th>
+                            <th>Count</th>
                             <th>Veiw Application</th>
                         </tr>
                     </thead>
@@ -27,6 +28,7 @@ const PostedJobList = ({ postedJobsPromise }) => {
                             <th>1</th>
                             <td>{job.title}</td>
                             <td>{job.location}</td>
+                            <td>{job.application_count}</td>
                             <td><Link to={`/APPLICATION/${job._id}`}>Veiw Application</Link></td>
                         </tr>)
                        }

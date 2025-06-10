@@ -58,7 +58,9 @@ export const router = createBrowserRouter([
     },
     {
       path: 'APPLICATION/:id',
-      element: <PrivateRoute><VeiwApplication></VeiwApplication></PrivateRoute>
+      element: <PrivateRoute><VeiwApplication></VeiwApplication></PrivateRoute>,
+      loader :({params})=> fetch(`http://localhost:3000/applications/job/${params.id}`),
+      hydrateFallbackElement: <Loader></Loader>
     }
    ]
   }
