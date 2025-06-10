@@ -2,13 +2,14 @@ import React, { Suspense } from 'react';
 import ApplicationStat from './ApplicationStat';
 import ApplicationList from './ApplicationList';
 import UseAuth from '../../Hook/UseAuth';
+import useApplicationApi from '../../applications/useApplicationApi';
 
-import { applicationPromise } from '../../applications/applications';
 
 const MyApplications = () => {
 
     const { user } = UseAuth()
-    console.log(user.accessToken);
+    const {applicationPromise} = useApplicationApi()
+    // console.log(user.accessToken);
     return (
         <div>
             <ApplicationStat></ApplicationStat>
@@ -21,7 +22,7 @@ const MyApplications = () => {
                 </>
             }>
                 <ApplicationList
-                    applicationPromise={applicationPromise(user.email,user.accessToken)}
+                    applicationPromise={applicationPromise(user.email)}
                 ></ApplicationList>
             </Suspense>
         </div>

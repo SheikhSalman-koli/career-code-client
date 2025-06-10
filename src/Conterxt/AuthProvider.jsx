@@ -46,18 +46,18 @@ const AuthProvider = ({children}) => {
             //     .catch(err=>console.log(err))
             // }
 
-            if(currentUser?.email){
-                const userData = {email: currentUser.email}
-                axios.post('http://localhost:3000', userData,{
-                    withCredentials: true
-                })
-                .then(res=>{
-                    console.log(res.data);
-                })
-                .catch(err=>{
-                    console.log(err);
-                })
-            }
+            // if(currentUser?.email){
+            //     const userData = {email: currentUser.email}
+            //     axios.post('http://localhost:3000', userData,{
+            //         withCredentials: true
+            //     })
+            //     .then(res=>{
+            //         console.log(res.data);
+            //     })
+            //     .catch(err=>{
+            //         console.log(err);
+            //     })
+            // }
         })
         return ()=>{
             unsubscribe()
